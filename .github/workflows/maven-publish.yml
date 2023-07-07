@@ -42,3 +42,14 @@ jobs:
         name: bundle
         path: bundle.tar.gz
         
+    - name: pack jar
+      run: |
+        tar -cf jard.tar telegrambots/target/telegrambots-6.7.0.jar
+        gzip jard.tar
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: telegrambots-6.7.0
+        path: jard.tar.gz
+        
+        
